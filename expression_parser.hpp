@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 #define PLUS '+'
 #define MINUS '-'
@@ -16,10 +17,24 @@
 
 using namespace std;
 
+struct toks_and_ops{
+
+	vector<double> toks;
+	vector<char> ops;
+
+};
+
 class Parser{
 
-public:
-		double get_num(string num);
+public :
+
+
+	static	double get_num(string num);
+
+	static	double evaluate(string expr);
+
+	static toks_and_ops tokenize(string expr);
+
 
 };
 
