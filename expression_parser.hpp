@@ -33,6 +33,8 @@ public :
 
 	static void remov(int pos, vector<double>& nums);
 
+	static void remov(int pos, vector<int>& nums);
+
 	static void remov(int pos, vector<char>& ops);
 
 	static	double get_num(string num);
@@ -56,7 +58,9 @@ struct expr_stack{
 	vector<int> prev_l_bracs;
 	int prev= -1;
 
-	string expr;
+	string expr="";
+
+
 	void push(char i){
 
 		if(i == LBRAC){
@@ -65,11 +69,17 @@ struct expr_stack{
 			expr+= i;
 		}else if(i == RBRAC && prev>=0){
 
-			expr = expr.substr(0, prev)+ to_string(Parser::evaluate(expr.substr(prev +1 , ind -prev )));
+			string ref=expr.substr(prev +1 , ind -prev  );
 
-			prev_l_bracs.erase(prev_l_bracs.end());
+			expr = expr.substr(0, prev)+ to_string(Parser::evaluate(ref));
 
-			prev = *prev_l_bracs.end();
+			Parser::remov(prev_l_bracs.size() -1 ,prev_l_bracs);
+
+
+
+			if(!prev_l_bracs.empty()){prev = *(prev_l_bracs.end());}else{
+				prev =-1;
+			}
 
 		}else{
 

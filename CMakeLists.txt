@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.16)
 
 
-project(EXPRESSION)
+project(run)
 
 include_directories(.)
 
-add_executable(EXPRESSION expression_parser.cpp main.cpp)
+add_executable(run expression_parser.cpp main.cpp)
 
 

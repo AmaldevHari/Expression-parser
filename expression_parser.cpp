@@ -16,7 +16,7 @@ toks_and_ops Parser::tokenize(string expr){
 
 	char current_char;
 
-	toks_and_ops res;
+
 
 	vector<double> toks;
 	vector<char> ops ;
@@ -45,9 +45,11 @@ toks_and_ops Parser::tokenize(string expr){
 	toks.push_back(get_num(tok));
 
 	print_vector(toks);
+
+
 	print_vector(ops);
-	res.toks =toks;
-	res.ops=ops;
+
+	toks_and_ops res ={toks,ops};
 	return res;
 
 }
@@ -87,6 +89,13 @@ double Parser::evaluate(string expr){
 
 
 	}
+
+	if(r.toks.size() ==1){
+		return r.toks[0];
+
+	}
+
+
 	ops_index=0;
 
 	print_vector(r.ops);
@@ -109,8 +118,11 @@ double Parser::evaluate(string expr){
 
 	}
 
-	print_vector(r.ops);
-	print_vector(r.toks);
+
+	if(r.toks.size() ==1){
+		return r.toks[0];
+
+	}
 
 	ops_index=0;
 	for(auto i = r.ops.begin(); i< r.ops.end();){
@@ -130,6 +142,10 @@ double Parser::evaluate(string expr){
 
 	}
 
+	if(r.toks.size() ==1){
+		return r.toks[0];
+
+	}
 	ops_index=0;
 	for(auto i = r.ops.begin(); i< r.ops.end();){
 
@@ -188,6 +204,24 @@ void Parser::remov(int pos,vector<char>& ops){
 
 };
 
+void Parser::remov(int pos,vector<int>& ops){
+
+
+	int count =0;
+
+	for(auto it =ops.begin() ; it<ops.end();it++){
+		if(pos==count){
+
+			ops.erase(it);
+			break;
+		}
+		count++;
+
+	}
+
+
+};
+
 void Parser::print_vector(vector<double> vec){
 
 	for(auto i =vec.begin(); i<vec.end();i++ ){
@@ -210,7 +244,7 @@ void Parser::print_vector(vector<char> vec){
 
 double Parser::eval_with_braces(string expr){
 
-	 expr_stack eval;
+	expr_stack eval;
 
 	for(auto i =expr.begin();i<expr.end();i++){
 
