@@ -39,7 +39,9 @@ public :
 
 	static toks_and_ops tokenize(string expr);
 
+	static void print_vector(vector<double> vec);
 
+	static void print_vector(vector<char> vec);
 };
 
 #endif

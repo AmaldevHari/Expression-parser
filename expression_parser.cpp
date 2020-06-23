@@ -29,8 +29,7 @@ double Parser::get_num(string num){
 			tok +=current_char;
 
 		}else{
-			cout<<tok<<"\n";
-			cout<<current_char<<"\n";
+
 			toks.push_back( get_num(tok));
 			ops.push_back(current_char);
 
@@ -41,6 +40,8 @@ double Parser::get_num(string num){
 	}
 	toks.push_back(get_num(tok));
 
+	 print_vector(toks);
+	 print_vector(ops);
 	 res.toks =toks;
 	 res.ops=ops;
 	 return res;
@@ -57,7 +58,7 @@ double Parser::get_num(string num){
 
 	int ops_index=0;
 
-	for(auto i = r.ops.begin(); i< r.ops.end();i++){
+	for(auto i = r.ops.begin(); i< r.ops.end();){
 
 		if(*i == MULTI){
 			temp_val=r.toks[ops_index+1] * r.toks[ops_index];
@@ -65,11 +66,19 @@ double Parser::get_num(string num){
 			remov(ops_index+1, r.toks);
 			remov(ops_index, r.ops);
 			r.toks[ops_index] = temp_val;
+		}else{
+
+			i++;
 		}
+
 		ops_index++;
 	}
 	ops_index=0;
-	for(auto i = r.ops.begin(); i< r.ops.end();i++){
+
+	print_vector(r.ops);
+	print_vector(r.toks);
+
+	for(auto i = r.ops.begin(); i< r.ops.end();){
 
 		if(*i == DIV){
 			temp_val= r.toks[ops_index] / r.toks[ops_index+1];
@@ -78,12 +87,19 @@ double Parser::get_num(string num){
 						remov(ops_index, r.ops);
 						r.toks[ops_index] = temp_val;
 
+		}else{
+
+			i++;
+			ops_index++;
 		}
-		ops_index++;
+
 	}
 
+	print_vector(r.ops);
+		print_vector(r.toks);
+
 	ops_index=0;
-		for(auto i = r.ops.begin(); i< r.ops.end();i++){
+		for(auto i = r.ops.begin(); i< r.ops.end();){
 
 			if(*i == PLUS){
 				temp_val= r.toks[ops_index+1] + r.toks[ops_index];
@@ -92,12 +108,16 @@ double Parser::get_num(string num){
 							remov(ops_index, r.ops);
 							r.toks[ops_index] = temp_val;
 
+			}else{
+
+				i++;
+				ops_index++;
 			}
-			ops_index++;
+
 		}
 
 		ops_index=0;
-			for(auto i = r.ops.begin(); i< r.ops.end();i++){
+			for(auto i = r.ops.begin(); i< r.ops.end();){
 
 				if(*i == MINUS){
 					temp_val= r.toks[ops_index] - r.toks[ops_index+1];
@@ -105,8 +125,12 @@ double Parser::get_num(string num){
 								remov(ops_index+1, r.toks);
 								remov(ops_index, r.ops);
 								r.toks[ops_index] = temp_val;
+				}else{
+
+					i++;
+					ops_index++;
 				}
-				ops_index++;
+
 			}
 
 			return r.toks[0];
@@ -123,6 +147,7 @@ void Parser::remov(int pos,vector<double>& nums){
 		if(pos==count){
 
 			nums.erase(it);
+			break;
 		}
 		count++;
 
@@ -138,9 +163,31 @@ void Parser::remov(int pos,vector<char>& ops){
 			if(pos==count){
 
 				ops.erase(it);
+				break;
 			}
 			count++;
 
 		}
+
+
 };
 
+void Parser::print_vector(vector<double> vec){
+
+	for(auto i =vec.begin(); i<vec.end();i++ ){
+
+		cout<<*i<<",";
+
+	}
+	cout<<"\n";
+};
+
+void Parser::print_vector(vector<char> vec){
+
+	for(auto i =vec.begin(); i<vec.end();i++ ){
+
+		cout<<*i<<",";
+
+	}
+	cout<<"\n";
+};
