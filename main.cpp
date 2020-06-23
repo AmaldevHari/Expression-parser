@@ -10,8 +10,8 @@
 
 int main(int argc , char** argv){
 
-	Parser p;
-	double num=p.get_num("23987.99");
+
+	double num= Parser::evaluate("23987.99*2");
 	printf("%f",num);
 	return EXIT_SUCCESS;
 }

@@ -1,11 +1,11 @@
 #include "expression_parser.hpp"
 
-static double Parser::get_num(string num){
+double Parser::get_num(string num){
 
 	return ::stod(num);
 }
 
-static toks_and_ops Parser::tokenize(string expr){
+ toks_and_ops Parser::tokenize(string expr){
 
 	const int len= expr.size();
 	string tok ="";
@@ -29,6 +29,8 @@ static toks_and_ops Parser::tokenize(string expr){
 			tok +=current_char;
 
 		}else{
+			cout<<tok<<"\n";
+			cout<<current_char<<"\n";
 			toks.push_back( get_num(tok));
 			ops.push_back(current_char);
 
@@ -37,6 +39,7 @@ static toks_and_ops Parser::tokenize(string expr){
 		}
 		current_index++;
 	}
+	toks.push_back(get_num(tok));
 
 	 res.toks =toks;
 	 res.ops=ops;
@@ -44,15 +47,52 @@ static toks_and_ops Parser::tokenize(string expr){
 
 }
 
-static double Parser::evaluate(string expr){
+ double Parser::evaluate(string expr){
 
+	double res;
 	toks_and_ops r =tokenize(expr);
 
-	int ops_index=1;
+	int ops_index=0;
 
 	for(auto i = r.ops.begin(); i< r.ops.end();i++){
 
+		if(*i == MULTI){
+			res += r.toks[ops_index+1] * r.toks[ops_index];
+
+		}
+		ops_index++;
 	}
+	ops_index=0;
+	for(auto i = r.ops.begin(); i< r.ops.end();i++){
+
+		if(*i == DIV){
+			res += r.toks[ops_index] / r.toks[ops_index+1];
+
+		}
+		ops_index++;
+	}
+
+	ops_index=0;
+		for(auto i = r.ops.begin(); i< r.ops.end();i++){
+
+			if(*i == PLUS){
+				res += r.toks[ops_index+1] + r.toks[ops_index];
+
+			}
+			ops_index++;
+		}
+
+		ops_index=0;
+			for(auto i = r.ops.begin(); i< r.ops.end();i++){
+
+				if(*i == MINUS){
+					res += r.toks[ops_index] - r.toks[ops_index+1];
+
+				}
+				ops_index++;
+			}
+
+			return res;
 
 };
 
