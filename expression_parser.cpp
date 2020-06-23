@@ -49,16 +49,22 @@ double Parser::get_num(string num){
 
  double Parser::evaluate(string expr){
 
-	double res;
+	expr.erase( remove(expr.begin(),expr.end(), ' '), expr.end());
+
+
 	toks_and_ops r =tokenize(expr);
+	double temp_val;
 
 	int ops_index=0;
 
 	for(auto i = r.ops.begin(); i< r.ops.end();i++){
 
 		if(*i == MULTI){
-			res += r.toks[ops_index+1] * r.toks[ops_index];
+			temp_val=r.toks[ops_index+1] * r.toks[ops_index];
 
+			remov(ops_index+1, r.toks);
+			remov(ops_index, r.ops);
+			r.toks[ops_index] = temp_val;
 		}
 		ops_index++;
 	}
@@ -66,7 +72,11 @@ double Parser::get_num(string num){
 	for(auto i = r.ops.begin(); i< r.ops.end();i++){
 
 		if(*i == DIV){
-			res += r.toks[ops_index] / r.toks[ops_index+1];
+			temp_val= r.toks[ops_index] / r.toks[ops_index+1];
+
+						remov(ops_index+1, r.toks);
+						remov(ops_index, r.ops);
+						r.toks[ops_index] = temp_val;
 
 		}
 		ops_index++;
@@ -76,7 +86,11 @@ double Parser::get_num(string num){
 		for(auto i = r.ops.begin(); i< r.ops.end();i++){
 
 			if(*i == PLUS){
-				res += r.toks[ops_index+1] + r.toks[ops_index];
+				temp_val= r.toks[ops_index+1] + r.toks[ops_index];
+
+							remov(ops_index+1, r.toks);
+							remov(ops_index, r.ops);
+							r.toks[ops_index] = temp_val;
 
 			}
 			ops_index++;
@@ -86,13 +100,47 @@ double Parser::get_num(string num){
 			for(auto i = r.ops.begin(); i< r.ops.end();i++){
 
 				if(*i == MINUS){
-					res += r.toks[ops_index] - r.toks[ops_index+1];
+					temp_val= r.toks[ops_index] - r.toks[ops_index+1];
 
+								remov(ops_index+1, r.toks);
+								remov(ops_index, r.ops);
+								r.toks[ops_index] = temp_val;
 				}
 				ops_index++;
 			}
 
-			return res;
+			return r.toks[0];
 
+};
+
+
+void Parser::remov(int pos,vector<double>& nums){
+
+
+	int count =0;
+
+	for(auto it =nums.begin() ; it<nums.end();it++){
+		if(pos==count){
+
+			nums.erase(it);
+		}
+		count++;
+
+	}
+};
+
+void Parser::remov(int pos,vector<char>& ops){
+
+
+		int count =0;
+
+		for(auto it =ops.begin() ; it<ops.end();it++){
+			if(pos==count){
+
+				ops.erase(it);
+			}
+			count++;
+
+		}
 };
 

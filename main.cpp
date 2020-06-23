@@ -11,7 +11,7 @@
 int main(int argc , char** argv){
 
 
-	double num= Parser::evaluate("23987.99*2");
+	double num= Parser::evaluate("23987.99  * 2 +2/2");
 	printf("%f",num);
 	return EXIT_SUCCESS;
 }

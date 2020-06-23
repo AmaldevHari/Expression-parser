@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 #define PLUS '+'
 #define MINUS '-'
@@ -28,6 +29,9 @@ class Parser{
 
 public :
 
+	static void remov(int pos, vector<double>& nums);
+
+	static void remov(int pos, vector<char>& ops);
 
 	static	double get_num(string num);
 
