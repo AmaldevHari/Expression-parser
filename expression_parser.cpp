@@ -1,9 +1,13 @@
 #include "expression_parser.hpp"
 
+
+
 double Parser::get_num(string num){
 
 	return ::stod(num);
 }
+
+
 
  toks_and_ops Parser::tokenize(string expr){
 
@@ -48,6 +52,8 @@ double Parser::get_num(string num){
 
 }
 
+
+
  double Parser::evaluate(string expr){
 
 	expr.erase( remove(expr.begin(),expr.end(), ' '), expr.end());
@@ -69,9 +75,10 @@ double Parser::get_num(string num){
 		}else{
 
 			i++;
+			ops_index++;
 		}
 
-		ops_index++;
+
 	}
 	ops_index=0;
 
@@ -136,6 +143,8 @@ double Parser::get_num(string num){
 			return r.toks[0];
 
 };
+
+
 
 
 void Parser::remov(int pos,vector<double>& nums){
