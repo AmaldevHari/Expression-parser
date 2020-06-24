@@ -1,12 +1,12 @@
 
 clean.bat
 
-cd build
+cd ../build
 
 cmake ../ -G "MinGW Makefiles"
 
 mingw32-make
 
-cd ..
+cd ../win-scripts
 
 
