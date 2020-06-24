@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/amaldev/Expression-parser/expression_parser.cpp
-expression_parser.hpp
-/home/amaldev/Expression-parser/expression_parser.hpp
-
 /home/amaldev/Expression-parser/expression_parser.hpp
 iostream
 -
@@ -21,4 +17,8 @@ algorithm
 -
 math.h
 -
+
+/home/amaldev/Expression-parser/main.cpp
+expression_parser.hpp
+/home/amaldev/Expression-parser/expression_parser.hpp
 

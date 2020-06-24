@@ -12,9 +12,9 @@ using namespace parser;
 
 int main(int argc , char** argv){
 
-	cout<<"Enter mathematical expressions to evaluate, ENTER key denotes end of expression \n ";
+	cout<< BOLDCYAN<<"Enter mathematical expressions to evaluate, ENTER key denotes end of expression \n ";
 	cout<<"supported operations are +(addition), -(subtraction), *(multiplication) , /(division) ,^(power)\n";
-	cout<<"Operations are based on BEDMAS \n";
+	cout<<"Operations are based on BEDMAS \n"<<BOLDWHITE;
 
 	string expr;
 	cout.precision(9);
@@ -25,11 +25,11 @@ int main(int argc , char** argv){
 
 		try{
 			cin>>expr;
-			cout<<Parser::eval_with_braces(expr)<<"\n";
+			cout<<BOLDGREEN<<Parser::eval_with_braces(expr)<<BOLDWHITE<<"\n";
 
 
 		}catch(exception& e){
-			cout<<"error: error while parsing!"<<"\n";
+			cout<<BOLDRED<<"error: error while parsing!"<<BOLDWHITE<<"\n";
 
 		}
 	}
