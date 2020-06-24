@@ -1,5 +1,5 @@
 
-clean.bat
+call clean.bat
 
 cd ../build
 
