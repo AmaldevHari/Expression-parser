@@ -1,4 +1,5 @@
-cd build
+
+cd ../build
 
 run
 
