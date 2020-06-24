@@ -7,6 +7,6 @@ cmake ../ -G "MinGW Makefiles"
 
 mingw32-make
 
-cd ../win-scripts
+cd ..
 
 
