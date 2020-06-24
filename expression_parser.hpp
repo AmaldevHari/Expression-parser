@@ -67,26 +67,33 @@ struct expr_stack{
 			prev_l_bracs.push_back(ind);
 			prev= ind;
 			expr+= i;
+			ind++;
+
 		}else if(i == RBRAC && prev>=0){
+
+
 
 			string ref=expr.substr(prev +1 , ind -prev  );
 
-			expr = expr.substr(0, prev)+ to_string(Parser::evaluate(ref));
+			ref=to_string(Parser::evaluate(ref));
+			expr = expr.substr(0, prev)+ ref;
+			ind =prev+ ref.size();
 
 			Parser::remov(prev_l_bracs.size() -1 ,prev_l_bracs);
 
 
 
-			if(!prev_l_bracs.empty()){prev = *(prev_l_bracs.end());}else{
+			if(!prev_l_bracs.empty()){prev = (prev_l_bracs.at(prev_l_bracs.size()-1));}else{
 				prev =-1;
 			}
+
 
 		}else{
 
 			expr+= i;
+			ind++;
 		}
 
-		ind++;
 	};
 
 };

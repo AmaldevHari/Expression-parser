@@ -44,10 +44,7 @@ toks_and_ops Parser::tokenize(string expr){
 	}
 	toks.push_back(get_num(tok));
 
-	print_vector(toks);
 
-
-	print_vector(ops);
 
 	toks_and_ops res ={toks,ops};
 	return res;
@@ -69,6 +66,11 @@ double Parser::evaluate(string expr){
 
 
 	toks_and_ops r =tokenize(expr);
+
+	if(r.toks.size()==1){
+
+		return r.toks[0];
+	}
 	double temp_val;
 
 	int ops_index=0;

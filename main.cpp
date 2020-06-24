@@ -11,7 +11,7 @@
 int main(int argc , char** argv){
 
 
-	double num=Parser::eval_with_braces("(4*3)");
+	double num=Parser::eval_with_braces("((12))");
 	printf("%f",num);
 	return EXIT_SUCCESS;
 }
