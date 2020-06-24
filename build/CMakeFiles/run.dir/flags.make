@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/amaldev/Image-renderer/. 
+CXX_INCLUDES = -I/home/amaldev/Expression-parser/. 
 

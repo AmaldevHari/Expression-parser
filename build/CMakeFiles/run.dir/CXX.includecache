@@ -6,7 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/amaldev/Image-renderer/expression_parser.hpp
+/home/amaldev/Expression-parser/expression_parser.cpp
+expression_parser.hpp
+/home/amaldev/Expression-parser/expression_parser.hpp
+
+/home/amaldev/Expression-parser/expression_parser.hpp
 iostream
 -
 string
@@ -16,7 +20,7 @@ vector
 algorithm
 -
 
-/home/amaldev/Image-renderer/main.cpp
+/home/amaldev/Expression-parser/main.cpp
 expression_parser.hpp
-/home/amaldev/Image-renderer/expression_parser.hpp
+/home/amaldev/Expression-parser/expression_parser.hpp
 

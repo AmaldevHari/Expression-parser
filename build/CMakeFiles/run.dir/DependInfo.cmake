@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/amaldev/Image-renderer/expression_parser.cpp" "/home/amaldev/Image-renderer/build/CMakeFiles/run.dir/expression_parser.cpp.o"
-  "/home/amaldev/Image-renderer/main.cpp" "/home/amaldev/Image-renderer/build/CMakeFiles/run.dir/main.cpp.o"
+  "/home/amaldev/Expression-parser/expression_parser.cpp" "/home/amaldev/Expression-parser/build/CMakeFiles/run.dir/expression_parser.cpp.o"
+  "/home/amaldev/Expression-parser/main.cpp" "/home/amaldev/Expression-parser/build/CMakeFiles/run.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
