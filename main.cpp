@@ -13,7 +13,7 @@ using namespace parser;
 int main(int argc , char** argv){
 
 
-	double num=Parser::eval_with_braces("(98 +3 -2 -1)/98 ");
+	double num=Parser::eval_with_braces("(98 -(2^2 )+ 4)/98 ");
 	printf("%f",num);
 	return EXIT_SUCCESS;
 }

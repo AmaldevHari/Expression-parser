@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-
+#include <math.h>
 
 namespace parser{
 

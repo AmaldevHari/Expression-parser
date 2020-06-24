@@ -36,9 +36,18 @@ toks_and_ops Parser::tokenize(string expr){
 		}else{
 
 			toks.push_back( get_num(tok));
+
+			if(current_char == MINUS){
+
+				tok="-";
+				ops.push_back(PLUS);
+
+			}else{
+
 			ops.push_back(current_char);
 
 			tok="";
+			}
 
 		}
 		current_index++;
@@ -75,6 +84,31 @@ double Parser::evaluate(string expr){
 	double temp_val;
 
 	int ops_index=0;
+
+
+	for(auto i = r.ops.begin(); i< r.ops.end();){
+
+			if(*i == POWER){
+				temp_val= pow(r.toks[ops_index] , r.toks[ops_index+1]);
+
+				remov(ops_index+1, r.toks);
+				remov(ops_index, r.ops);
+				r.toks[ops_index] = temp_val;
+			}else{
+
+				i++;
+				ops_index++;
+			}
+
+
+		}
+
+		if(r.toks.size() ==1){
+			return r.toks[0];
+
+		}
+
+	ops_index=0;
 
 	for(auto i = r.ops.begin(); i< r.ops.end();){
 
@@ -149,22 +183,25 @@ double Parser::evaluate(string expr){
 		return r.toks[0];
 
 	}
+
 	ops_index=0;
-	for(auto i = r.ops.begin(); i< r.ops.end();){
+		for(auto i = r.ops.begin(); i< r.ops.end();){
 
-		if(*i == MINUS){
-			temp_val= r.toks[ops_index] - r.toks[ops_index+1];
+			if(*i == MINUS){
+				temp_val= r.toks[ops_index] - r.toks[ops_index+1];
 
-			remov(ops_index+1, r.toks);
-			remov(ops_index, r.ops);
-			r.toks[ops_index] = temp_val;
-		}else{
+				remov(ops_index+1, r.toks);
+				remov(ops_index, r.ops);
+				r.toks[ops_index] = temp_val;
 
-			i++;
-			ops_index++;
+			}else{
+
+				i++;
+				ops_index++;
+			}
+
 		}
 
-	}
 
 	return r.toks[0];
 
