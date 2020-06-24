@@ -84,6 +84,8 @@ struct expr_stack{
 			string ref=expr.substr(prev +1 , ind -prev  );
 
 			ref=to_string(Parser::evaluate(ref));
+
+
 			expr = expr.substr(0, prev)+ ref;
 			ind =prev+ ref.size();
 

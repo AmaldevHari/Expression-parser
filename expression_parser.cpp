@@ -19,6 +19,7 @@ toks_and_ops Parser::tokenize(string expr){
 
 
 
+
 	vector<double> toks;
 	vector<char> ops ;
 
@@ -29,25 +30,32 @@ toks_and_ops Parser::tokenize(string expr){
 
 		current_char=expr.at(current_index);
 
-		if((current_char<58 && current_char>47) || current_char == 46){
+		if((current_char<58 && current_char>44) && current_char != 47){
 
-			tok +=current_char;
-
-		}else{
-
-			toks.push_back( get_num(tok));
 
 			if(current_char == MINUS){
 
-				tok="-";
 				ops.push_back(PLUS);
+				toks.push_back(get_num(tok));
+				tok="";
+			}
 
-			}else{
 
+
+			tok +=current_char;
+
+
+		}else{
+
+
+
+
+
+			toks.push_back( get_num(tok));
 			ops.push_back(current_char);
 
 			tok="";
-			}
+
 
 		}
 		current_index++;
@@ -74,7 +82,9 @@ double Parser::evaluate(string expr){
 		return 1;
 	}
 
-
+	if(expr.at(0) == MINUS){
+			expr ="0" +expr;
+		}
 	toks_and_ops r =tokenize(expr);
 
 	if(r.toks.size()==1){
@@ -88,25 +98,25 @@ double Parser::evaluate(string expr){
 
 	for(auto i = r.ops.begin(); i< r.ops.end();){
 
-			if(*i == POWER){
-				temp_val= pow(r.toks[ops_index] , r.toks[ops_index+1]);
+		if(*i == POWER){
+			temp_val= pow(r.toks[ops_index] , r.toks[ops_index+1]);
 
-				remov(ops_index+1, r.toks);
-				remov(ops_index, r.ops);
-				r.toks[ops_index] = temp_val;
-			}else{
+			remov(ops_index+1, r.toks);
+			remov(ops_index, r.ops);
+			r.toks[ops_index] = temp_val;
+		}else{
 
-				i++;
-				ops_index++;
-			}
-
-
+			i++;
+			ops_index++;
 		}
 
-		if(r.toks.size() ==1){
-			return r.toks[0];
 
-		}
+	}
+
+	if(r.toks.size() ==1){
+		return r.toks[0];
+
+	}
 
 	ops_index=0;
 
@@ -135,8 +145,6 @@ double Parser::evaluate(string expr){
 
 	ops_index=0;
 
-	print_vector(r.ops);
-	print_vector(r.toks);
 
 	for(auto i = r.ops.begin(); i< r.ops.end();){
 
@@ -156,12 +164,14 @@ double Parser::evaluate(string expr){
 	}
 
 
+
 	if(r.toks.size() ==1){
 		return r.toks[0];
 
 	}
 
 	ops_index=0;
+
 	for(auto i = r.ops.begin(); i< r.ops.end();){
 
 		if(*i == PLUS){
@@ -179,28 +189,6 @@ double Parser::evaluate(string expr){
 
 	}
 
-	if(r.toks.size() ==1){
-		return r.toks[0];
-
-	}
-
-	ops_index=0;
-		for(auto i = r.ops.begin(); i< r.ops.end();){
-
-			if(*i == MINUS){
-				temp_val= r.toks[ops_index] - r.toks[ops_index+1];
-
-				remov(ops_index+1, r.toks);
-				remov(ops_index, r.ops);
-				r.toks[ops_index] = temp_val;
-
-			}else{
-
-				i++;
-				ops_index++;
-			}
-
-		}
 
 
 	return r.toks[0];
@@ -292,7 +280,7 @@ double Parser::eval_with_braces(string expr){
 
 	}
 
-	cout<<"expr:"<<eval.expr<<"\n";
+
 	return evaluate(eval.expr);
 
 
