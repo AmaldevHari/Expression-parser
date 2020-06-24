@@ -20,6 +20,7 @@ int main(int argc , char** argv){
 	cout<<GREEN<<"Note: sin(2pi) is not same as sin(2*pi) , implicitly leaving will result in concatenation \n";
 	cout<<"Hint: result of the previous operation can be accessed using the expression prev"<<"\n";
 	cout<< "example: prev * sin(3*pi) is a valid operation accesing the previous answer to the previous expression \n"<<BOLDWHITE;
+	cout<<"type help and press ENTER for more information on commands available"<<"\n";
 
 	string expr;
 	cout.precision(9);
@@ -38,6 +39,11 @@ int main(int argc , char** argv){
 			if(expr.compare("exit")==0){
 
 				break;
+			}if(expr.compare("help")==0){
+
+				cout<<BOLDWHITE<<"Built in constants:\ne\npi\nbuilt in commands:\nprev - access the previosuly computed value\n";
+				cout<<"precision - change the precision of outputs, example precision = 9\nexit - exits the current shell \n";
+				goto no_eval;
 			}if(expr.substr(0,10).compare("precision=")==0){
 
 				cout.precision((int)Parser::get_num(Parser::replace(expr,"precision=","")));

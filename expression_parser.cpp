@@ -333,3 +333,18 @@ string Parser::pre_process_trig_and_constants(string source){
 
 
 }
+
+/*string Parser::trig_deriv(string trig){
+
+	if(trig.substr(0,3).compare("sin" )==0){
+
+		return "cos(x)";
+
+	}
+	if(trig.substr(0,3).compare("cos")==0){
+
+		return "-sin(x)";
+	}
+	return "";
+
+}*/
