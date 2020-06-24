@@ -13,6 +13,10 @@ namespace parser{
 
 //#define COLOROUTPUT 1
 
+//For windows systems do not un-comment the above macro
+// For linux systems uncomment COLOROUTPUT macro to get color formatted outputs
+
+#ifdef COLOROUTPUT
 //the following are colour codes for stdout in UBUNTU/LINUX
 #define RESET   "\033[0m"
 #define BLACK   "\033[30m"      /* Black */
@@ -32,7 +36,29 @@ namespace parser{
 #define BOLDCYAN    "\033[1m\033[36m"      /* Bold Cyan */
 #define BOLDWHITE   "\033[1m\033[37m"      /* Bold White */
 
+#endif
 
+#ifndef COLOROUTPUT
+
+#define RESET   ""
+#define BLACK   ""
+#define RED     ""
+#define GREEN   ""
+#define YELLOW  ""
+#define BLUE    ""
+#define MAGENTA ""
+#define CYAN    ""
+#define WHITE   ""
+#define BOLDBLACK  ""
+#define BOLDRED    ""
+#define BOLDGREEN   ""
+#define BOLDYELLOW  ""
+#define BOLDBLUE    ""
+#define BOLDMAGENTA ""
+#define BOLDCYAN   ""
+#define BOLDWHITE  ""
+
+#endif
 
 
 

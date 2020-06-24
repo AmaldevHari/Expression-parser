@@ -24,9 +24,12 @@ int main(int argc , char** argv){
 		cout<< "$: ";
 
 		try{
-			cin>>expr;
-			cout<<BOLDGREEN<<Parser::eval_with_braces(expr)<<BOLDWHITE<<"\n";
 
+
+			getline(cin,expr);
+
+			cout<<BOLDGREEN<<Parser::eval_with_braces(expr)<<BOLDWHITE<<"\n";
+			expr="";
 
 		}catch(exception& e){
 			cout<<BOLDRED<<"error: error while parsing!"<<BOLDWHITE<<"\n";
