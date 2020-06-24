@@ -106,7 +106,7 @@ public :
 
 	static string replace(string source, string del , string add);
 
-	static string pre_process_trig(string source);
+	static string pre_process_trig_and_constants(string source);
 };
 
 

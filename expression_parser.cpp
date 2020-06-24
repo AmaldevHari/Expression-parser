@@ -274,8 +274,8 @@ double Parser::eval_with_braces(string expr){
 	expr_stack eval;
 	int ind=0;
 
-
-	expr = pre_process_trig(expr);
+	expr.erase( remove(expr.begin(),expr.end(), ' '), expr.end());
+	expr = pre_process_trig_and_constants(expr);
 
 	for(auto i =expr.begin();i<expr.end();){
 
@@ -320,12 +320,14 @@ string Parser::replace(string source, string del, string add){
 
 }
 
-string Parser::pre_process_trig(string source){
+string Parser::pre_process_trig_and_constants(string source){
 
 
 	source =replace(source,"sin","s");
 	source =replace(source,"cos", "c");
 	source =replace(source,"tan", "t");
+	source =replace(source,"e", to_string(exp(1)));
+	source =replace(source,"pi", to_string(M_PI));
 	return source;
 
 

@@ -17,6 +17,9 @@ int main(int argc , char** argv){
 	cout<<"Trigonometric functions are also supported, sin(.), cos(.), and tan(.) \n";
 	cout<< "Built in constants are"<<BOLDRED<<" e "<<BOLDCYAN<<"and"<<BOLDRED<<" pi"<<BOLDWHITE <<"\n";
 	cout<<"Operations are based on BEDMAS \n"<<BOLDWHITE;
+	cout<<GREEN<<"Note: sin(2pi) is not same as sin(2*pi) , implicitly leaving will result in concatenation \n";
+	cout<<"Hint: result of the previous operation can be accessed using the expression prev"<<"\n";
+	cout<< "example: prev * sin(3*pi) is a valid operation accesing the previous answer to the previous expression \n"<<BOLDWHITE;
 
 	string expr;
 	cout.precision(9);
@@ -30,14 +33,21 @@ int main(int argc , char** argv){
 		try{
 
 			getline(cin,expr);
+			expr.erase( remove(expr.begin(),expr.end(), ' '), expr.end());
+
 			if(expr.compare("exit")==0){
 
 				break;
+			}if(expr.substr(0,10).compare("precision=")==0){
+
+				cout.precision((int)Parser::get_num(Parser::replace(expr,"precision=","")));
+				cout<<"precision is now:"<<cout.precision()<<"\n";
+				goto no_eval;
 			}
 
 			prev=ans;
 
-			expr.erase( remove(expr.begin(),expr.end(), ' '), expr.end());
+
 			expr =regex_replace(expr,regex("prev"),to_string(prev));
 
 			ans= Parser::eval_with_braces(expr);
@@ -49,7 +59,7 @@ int main(int argc , char** argv){
 			//cout<<e.what();
 			cout<<BOLDRED<<"error: error while parsing!"<<BOLDWHITE<<"\n";
 		}
-
+		no_eval:{ expr="";}
 	}
 
 	return EXIT_SUCCESS;
