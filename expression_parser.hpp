@@ -14,7 +14,7 @@ namespace parser{
 
 #define COLOROUTPUT 1
 
-//For windows systems do not un-comment the above macro
+//For windows systems comment the above macro
 // For linux systems uncomment COLOROUTPUT macro to get color formatted outputs
 
 #ifdef COLOROUTPUT
@@ -108,6 +108,9 @@ public :
 
 struct toks_and_ops{
 
+	/*
+	 * compound data type for conveninece
+	 */
 	vector<double> toks;
 	vector<char> ops;
 
@@ -116,60 +119,63 @@ struct toks_and_ops{
 
 struct expr_stack{
 
+	/*member fields*/
 	bool expr_done =false;
+	bool first_r_brac_evaluated =false;
 	int ind=0;
-
-	vector<int> prev_l_bracs;
 	int prev= -1;
-
+	vector<int> prev_l_bracs;
 	string expr="";
+	string ref;
 
-
+	/*method for the stack*/
 	void push(char i){
-
+		/*
+		 * The algorithm for push() dynamically checks for complete braces ( complete braces are a pair of adjacent ( and ) )
+		 * If more left braces are found the current starting index of a brace to be completed is updated as the index of most recent left brace
+		 * While there is a left brace and a right brace is found , it denotes a valid brace expression and the contents inside it is evaluated as
+		 * a mathematical expression by calling evaluate()
+		 *  After this the current starting index for a brace to be completed is updates as the most recent one before the previousleft brace
+		 *  The previous valid brace expression is replaced by the result of the evaluation
+		 *
+		 *  Once a full valid brace expression is completely pushed inside this stack there will not be any braces left and
+		 *  evaluate() method can be called to evaluate it.
+		 *
+		 *  expr_stack acts like a pre-processor for expressions
+		 */
 		if(i == LBRAC){
+
 			prev_l_bracs.push_back(ind);
 			prev= ind;
 			expr+= i;
 			ind++;
-
 		}else if(i == RBRAC && prev>=0){
 
-
-
-			string ref=expr.substr(prev +1 , ind -prev  );
-
+			first_r_brac_evaluated =true;
+			ref=expr.substr(prev +1 , ind -prev  );
 			ref=to_string(Parser::evaluate(ref));
-
 
 			expr = expr.substr(0, prev)+ ref;
 			ind =prev+ ref.size();
-
 			Parser::remov(prev_l_bracs.size() -1 ,prev_l_bracs);
-
-
 
 			if(!prev_l_bracs.empty()){
 
 				prev = (prev_l_bracs.at(prev_l_bracs.size()-1));
-
 			}else{
-				prev =-1;
-				expr_done = true;
-			}
 
+				prev =-1;
+				if(first_r_brac_evaluated){
+					expr_done = true;}
+			}
 
 		}else{
 
 			expr+= i;
 			ind++;
 		}
-
 	};
-
 };
-
-
 
 
 

@@ -27,19 +27,15 @@ int main(int argc , char** argv){
 
 		try{
 
-
 			getline(cin,expr);
-
 			if(expr.compare("exit")==0){
 
 				break;
-
 			}
 
 			prev=ans;
 
 			expr.erase( remove(expr.begin(),expr.end(), ' '), expr.end());
-
 			expr =regex_replace(expr,regex("prev"),to_string(prev));
 
 			ans= Parser::eval_with_braces(expr);
@@ -47,8 +43,8 @@ int main(int argc , char** argv){
 			expr="";
 
 		}catch(exception& e){
-			cout<<BOLDRED<<"error: error while parsing!"<<BOLDWHITE<<"\n";
 
+			cout<<BOLDRED<<"error: error while parsing!"<<BOLDWHITE<<"\n";
 		}
 
 	}
