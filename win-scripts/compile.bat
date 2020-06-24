@@ -1,7 +1,7 @@
 
 clean.bat
 
-cd ../build
+cd build
 
 cmake ../ -G "MinGW Makefiles"
 
