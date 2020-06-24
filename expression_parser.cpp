@@ -35,9 +35,12 @@ toks_and_ops Parser::tokenize(string expr){
 
 			if(current_char == MINUS){
 
+				if(expr.at(current_index -1) > 47 &&  expr.at(current_index -1) <58){
 				ops.push_back(PLUS);
 				toks.push_back(get_num(tok));
 				tok="";
+				}
+
 			}
 
 
@@ -87,10 +90,7 @@ double Parser::evaluate(string expr){
 		}
 	toks_and_ops r =tokenize(expr);
 
-	if(r.toks.size()==1){
 
-		return r.toks[0];
-	}
 	double temp_val;
 
 	int ops_index=0;
