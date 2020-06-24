@@ -8,6 +8,10 @@
 #include <vector>
 #include <algorithm>
 
+
+namespace parser{
+
+
 #define PLUS '+'
 #define MINUS '-'
 #define MULTI '*'
@@ -18,13 +22,8 @@
 
 using namespace std;
 
-struct toks_and_ops{
-
-	vector<double> toks;
-	vector<char> ops;
-
-};
-
+struct toks_and_ops;
+struct expr_stack;
 
 
 class Parser{
@@ -49,6 +48,15 @@ public :
 
 	static double eval_with_braces(string expr);
 };
+
+
+struct toks_and_ops{
+
+	vector<double> toks;
+	vector<char> ops;
+
+};
+
 
 struct expr_stack{
 
@@ -83,7 +91,11 @@ struct expr_stack{
 
 
 
-			if(!prev_l_bracs.empty()){prev = (prev_l_bracs.at(prev_l_bracs.size()-1));}else{
+			if(!prev_l_bracs.empty()){
+
+				prev = (prev_l_bracs.at(prev_l_bracs.size()-1));
+
+			}else{
 				prev =-1;
 			}
 
@@ -98,4 +110,9 @@ struct expr_stack{
 
 };
 
+
+
+
+
+}
 #endif

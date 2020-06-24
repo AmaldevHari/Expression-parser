@@ -1,5 +1,6 @@
 #include "expression_parser.hpp"
 
+using namespace parser;
 
 
 double Parser::get_num(string num){
@@ -260,5 +261,8 @@ double Parser::eval_with_braces(string expr){
 
 
 };
+
+
+
 
 

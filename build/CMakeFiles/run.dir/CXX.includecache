@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/amaldev/Image-renderer/expression_parser.cpp
-expression_parser.hpp
-/home/amaldev/Image-renderer/expression_parser.hpp
-
 /home/amaldev/Image-renderer/expression_parser.hpp
 iostream
 -
@@ -19,4 +15,8 @@ vector
 -
 algorithm
 -
+
+/home/amaldev/Image-renderer/main.cpp
+expression_parser.hpp
+/home/amaldev/Image-renderer/expression_parser.hpp
 
