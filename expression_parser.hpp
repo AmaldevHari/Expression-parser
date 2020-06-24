@@ -8,10 +8,11 @@
 #include <vector>
 #include <algorithm>
 #include <math.h>
+#include <regex>
 
 namespace parser{
 
-//#define COLOROUTPUT 1
+#define COLOROUTPUT 1
 
 //For windows systems do not un-comment the above macro
 // For linux systems uncomment COLOROUTPUT macro to get color formatted outputs
@@ -61,6 +62,7 @@ namespace parser{
 #endif
 
 
+//important constants for refernce
 
 #define PLUS '+'
 #define MINUS '-'
@@ -69,6 +71,10 @@ namespace parser{
 #define POWER '^'
 #define LBRAC '('
 #define RBRAC ')'
+#define SIN '!'
+#define COS '@'
+#define TAN '#'
+#define PI '%'
 
 using namespace std;
 
@@ -110,7 +116,7 @@ struct toks_and_ops{
 
 struct expr_stack{
 
-
+	bool expr_done =false;
 	int ind=0;
 
 	vector<int> prev_l_bracs;
@@ -149,6 +155,7 @@ struct expr_stack{
 
 			}else{
 				prev =-1;
+				expr_done = true;
 			}
 
 

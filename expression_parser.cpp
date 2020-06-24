@@ -77,7 +77,7 @@ toks_and_ops Parser::tokenize(string expr){
 double Parser::evaluate(string expr){
 
 
-	expr.erase( remove(expr.begin(),expr.end(), ' '), expr.end());
+
 
 
 	if(expr.empty()){
@@ -274,9 +274,16 @@ double Parser::eval_with_braces(string expr){
 
 	expr_stack eval;
 
-	for(auto i =expr.begin();i<expr.end();i++){
+	int ind=0;
+
+	for(auto i =expr.begin();i<expr.end();){
+
+
 
 		eval.push(*i);
+		i++;
+		ind++;
+
 
 	}
 

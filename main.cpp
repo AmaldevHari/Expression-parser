@@ -18,6 +18,8 @@ int main(int argc , char** argv){
 
 	string expr;
 	cout.precision(9);
+	double ans=0;
+	double prev=0;
 
 	while(true){
 
@@ -28,13 +30,27 @@ int main(int argc , char** argv){
 
 			getline(cin,expr);
 
-			cout<<BOLDGREEN<<Parser::eval_with_braces(expr)<<BOLDWHITE<<"\n";
+			if(expr.compare("exit")==0){
+
+				break;
+
+			}
+
+			prev=ans;
+
+			expr.erase( remove(expr.begin(),expr.end(), ' '), expr.end());
+
+			expr =regex_replace(expr,regex("prev"),to_string(prev));
+
+			ans= Parser::eval_with_braces(expr);
+			cout<<BOLDRED<<"Ans: "<<BOLDGREEN<<ans<<BOLDWHITE<<"\n";
 			expr="";
 
 		}catch(exception& e){
 			cout<<BOLDRED<<"error: error while parsing!"<<BOLDWHITE<<"\n";
 
 		}
+
 	}
 
 	return EXIT_SUCCESS;
