@@ -12,8 +12,10 @@ using namespace parser;
 
 int main(int argc , char** argv){
 
-	cout<< BOLDCYAN<<"Enter mathematical expressions to evaluate, ENTER key denotes end of expression \n ";
+	cout<< BOLDCYAN<<"Enter mathematical expressions to evaluate, ENTER key denotes end of expression \n";
 	cout<<"supported operations are +(addition), -(subtraction), *(multiplication) , /(division) ,^(power)\n";
+	cout<<"Trigonometric functions are also supported, sin(.), cos(.), and tan(.) \n";
+	cout<< "Built in constants are"<<BOLDRED<<" e "<<BOLDCYAN<<"and"<<BOLDRED<<" pi"<<BOLDWHITE <<"\n";
 	cout<<"Operations are based on BEDMAS \n"<<BOLDWHITE;
 
 	string expr;
@@ -44,6 +46,7 @@ int main(int argc , char** argv){
 
 		}catch(exception& e){
 
+			//cout<<e.what();
 			cout<<BOLDRED<<"error: error while parsing!"<<BOLDWHITE<<"\n";
 		}
 

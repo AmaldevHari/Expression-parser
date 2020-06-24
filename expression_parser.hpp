@@ -71,10 +71,10 @@ namespace parser{
 #define POWER '^'
 #define LBRAC '('
 #define RBRAC ')'
-#define SIN '!'
-#define COS '@'
-#define TAN '#'
-#define PI '%'
+#define SIN 's'
+#define COS 'c'
+#define TAN 't'
+
 
 using namespace std;
 
@@ -103,6 +103,10 @@ public :
 	static void print_vector(vector<char> vec);
 
 	static double eval_with_braces(string expr);
+
+	static string replace(string source, string del , string add);
+
+	static string pre_process_trig(string source);
 };
 
 
@@ -121,9 +125,9 @@ struct expr_stack{
 
 	/*member fields*/
 	bool expr_done =false;
-	bool first_r_brac_evaluated =false;
 	int ind=0;
 	int prev= -1;
+	int push_count=0;
 	vector<int> prev_l_bracs;
 	string expr="";
 	string ref;
@@ -143,6 +147,8 @@ struct expr_stack{
 		 *
 		 *  expr_stack acts like a pre-processor for expressions
 		 */
+		push_count++;
+
 		if(i == LBRAC){
 
 			prev_l_bracs.push_back(ind);
@@ -151,7 +157,7 @@ struct expr_stack{
 			ind++;
 		}else if(i == RBRAC && prev>=0){
 
-			first_r_brac_evaluated =true;
+
 			ref=expr.substr(prev +1 , ind -prev  );
 			ref=to_string(Parser::evaluate(ref));
 
@@ -165,8 +171,7 @@ struct expr_stack{
 			}else{
 
 				prev =-1;
-				if(first_r_brac_evaluated){
-					expr_done = true;}
+				expr_done = true;
 			}
 
 		}else{

@@ -274,16 +274,60 @@ double Parser::eval_with_braces(string expr){
 	expr_stack eval;
 	int ind=0;
 
+
+	expr = pre_process_trig(expr);
+
 	for(auto i =expr.begin();i<expr.end();){
 
-		eval.push(*i);
-		i++;
-		ind++;
+		if(*i!=SIN && *i !=COS && *i != TAN){
+
+			eval.push(*i);
+			i++;
+			ind++;
+		}else{
+
+			expr_stack trig_eval;
+			int trig_ind =ind+1;
+
+			while(!trig_eval.expr_done){
+
+				trig_eval.push(expr.at(trig_ind));
+				trig_ind++;
+			}
+
+			string temp;
+			if(*i== SIN){
+
+				temp= to_string(sin(evaluate(trig_eval.expr)));
+			}else if(*i== COS){
+
+				temp= to_string(cos(evaluate(trig_eval.expr)));
+			}else{
+				temp= to_string(tan(evaluate(trig_eval.expr)));
+			}
+			expr =expr.substr(0,ind) + temp +expr.substr(ind+ trig_eval.push_count +1, expr.size()-ind -trig_eval.ind -2);
+
+		}
 	}
 	return evaluate(eval.expr);
 };
 
 
 
+string Parser::replace(string source, string del, string add){
+
+	return regex_replace(source,regex(del),add);
+
+}
+
+string Parser::pre_process_trig(string source){
 
 
+	source =replace(source,"sin","s");
+	source =replace(source,"cos", "c");
+	source =replace(source,"tan", "t");
+	return source;
+
+
+
+}
