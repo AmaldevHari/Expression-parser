@@ -180,7 +180,7 @@ struct expr_stack{
 
 
 			ref=expr.substr(prev +1 , ind -prev  );
-			ref=to_string(evaluate(ref));
+			ref=to_string(eval_with_braces(ref));
 
 			expr = expr.substr(0, prev)+ ref;
 			ind =prev+ ref.size();
