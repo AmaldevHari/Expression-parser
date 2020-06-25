@@ -45,5 +45,8 @@ Example valid expressions that can be parsed and computed by this software:
 (5) pi^2
 
 and so on and so forth
+*****************************************************************************
+To generate documentation use the config_file that comes with this project
+example: execute 'doxygen config_file'
 
 Thanks for reading!
