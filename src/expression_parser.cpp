@@ -3,8 +3,8 @@
 
 using namespace parser;
 
-double Parser::get_num(string num){
-	/*
+double parser::get_num(string num){
+	/**
 	 * renamed for convenience
 	 */
 	return ::stod(num);
@@ -12,8 +12,8 @@ double Parser::get_num(string num){
 
 
 
-toks_and_ops Parser::tokenize(string expr){
-	/*
+toks_and_ops parser::tokenize(string expr){
+	/**
 	 * This method tokenizes a string (without braces) into numbers and operands. The string must be a valid mathematical expression
 	 * It is recommended to be called from evaluate() method since there is no support for braces.
 	 * For evaluation of expressions with braces check out struct expr_stack.
@@ -31,7 +31,7 @@ toks_and_ops Parser::tokenize(string expr){
 	while(current_index<len){
 
 		current_char=expr.at(current_index);
-		/*
+		/**
 		 * check if the character is  a number a.k.a between values 57 and 48 in ASCII
 		 *'.' is 46 in ASCII and - is 45
 		 *This method is faster than cross referencing character with every other numbers
@@ -41,7 +41,7 @@ toks_and_ops Parser::tokenize(string expr){
 			if(current_char == MINUS){
 
 				if(expr.at(current_index -1) > 47 &&  expr.at(current_index -1) <58){
-					/*
+					/**
 					 * Pure subtraction is considered as addition of a negative value.
 					 * if the character before the minus sign is a number its a pure subtraction
 					 * if the character before is an operation it is a normal operation
@@ -57,7 +57,7 @@ toks_and_ops Parser::tokenize(string expr){
 			tok +=current_char;
 
 		}else{
-			/*
+			/**
 			 * If the character is not a number , '.' or '-'
 			 */
 			toks.push_back( get_num(tok));
@@ -75,9 +75,9 @@ toks_and_ops Parser::tokenize(string expr){
 
 
 
-double Parser::evaluate(string expr){
+double parser::evaluate(string expr){
 
-	/*
+	/**
 	 * Central method for evaluation.
 	 * This method is not directly called by the user
 	 * This method serves as a helper for the structure expr_stack to evaluate expressions with braces
@@ -87,7 +87,7 @@ double Parser::evaluate(string expr){
 
 		return 1;
 	}if(expr.at(0) == MINUS){
-		/*
+		/**
 		 *  preventing an error for tokenize() method
 		 */
 		expr ="0" +expr;
@@ -99,7 +99,7 @@ double Parser::evaluate(string expr){
 	toks_and_ops r =tokenize(expr);
 	double temp_val;
 	int ops_index=0;
-	/*
+	/**
 	 * The operations use BEDMAS
 	 * In this context we exclude braces since this method does not evaluate expression with brace
 	 * Power takes precedence then * ->/ -> +
@@ -193,9 +193,9 @@ double Parser::evaluate(string expr){
 
 
 
-void Parser::remov(int pos,vector<double>& nums){
+void parser::remov(int pos,vector<double>& nums){
 
-	/*
+	/**
 	 * Removes an element from the specified index from a vector<>
 	 * more convenient than directly implementing an iterator loop
 	 * This function is overloaded for char type and int type vectors
@@ -214,7 +214,7 @@ void Parser::remov(int pos,vector<double>& nums){
 	}
 };
 
-void Parser::remov(int pos,vector<char>& ops){
+void parser::remov(int pos,vector<char>& ops){
 
 	int count =0;
 
@@ -229,7 +229,7 @@ void Parser::remov(int pos,vector<char>& ops){
 	}
 };
 
-void Parser::remov(int pos,vector<int>& ops){
+void parser::remov(int pos,vector<int>& ops){
 
 	int count =0;
 
@@ -244,7 +244,7 @@ void Parser::remov(int pos,vector<int>& ops){
 	}
 };
 
-void Parser::print_vector(vector<double> vec){
+void parser::print_vector(vector<double> vec){
 
 	/*
 	 * prints out contents of a vector
@@ -256,7 +256,7 @@ void Parser::print_vector(vector<double> vec){
 	cout<<*(vec.end()-1)<<"\n";
 };
 
-void Parser::print_vector(vector<char> vec){
+void parser::print_vector(vector<char> vec){
 
 	for(auto i =vec.begin(); i<vec.end() -1;i++ ){
 
@@ -265,9 +265,9 @@ void Parser::print_vector(vector<char> vec){
 	cout<<*(vec.end()-1)<<"\n";
 };
 
-double Parser::eval_with_braces(string expr){
+double parser::eval_with_braces(string expr){
 
-	/*
+	/**
 	 * evaluates expressions with braces
 	 * see expr_stack structure for more information on evaluation of expressions with braces
 	 */
@@ -314,27 +314,28 @@ double Parser::eval_with_braces(string expr){
 
 
 
-string Parser::replace(string source, string del, string add){
+string parser::replace_expr(string source, string del, string add){
 
 	return regex_replace(source,regex(del),add);
 
 }
 
-string Parser::pre_process_trig_and_constants(string source){
+string parser::pre_process_trig_and_constants(string source){
 
 
-	source =replace(source,"sin","s");
-	source =replace(source,"cos", "c");
-	source =replace(source,"tan", "t");
-	source =replace(source,"e", to_string(exp(1)));
-	source =replace(source,"pi", to_string(M_PI));
+	source =replace_expr(source,"sin","s");
+	source =replace_expr(source,"cos", "c");
+	source =replace_expr(source,"tan", "t");
+	source =replace_expr(source,"e", to_string(exp(1)));
+	source =replace_expr(source,"pi", to_string(M_PI));
 	return source;
 
 
 
 }
 
-/*string Parser::trig_deriv(string trig){
+
+/*string trig_deriv(string trig){
 
 	if(trig.substr(0,3).compare("sin" )==0){
 

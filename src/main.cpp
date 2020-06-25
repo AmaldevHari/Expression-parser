@@ -46,7 +46,7 @@ int main(int argc , char** argv){
 				goto no_eval;
 			}if(expr.substr(0,10).compare("precision=")==0){
 
-				cout.precision((int)Parser::get_num(Parser::replace(expr,"precision=","")));
+				cout.precision((int)get_num(replace_expr(expr,"precision=","")));
 				cout<<"precision is now:"<<cout.precision()<<"\n";
 				goto no_eval;
 			}
@@ -56,7 +56,7 @@ int main(int argc , char** argv){
 
 			expr =regex_replace(expr,regex("prev"),to_string(prev));
 
-			ans= Parser::eval_with_braces(expr);
+			ans= eval_with_braces(expr);
 			cout<<BOLDRED<<"Ans: "<<BOLDGREEN<<ans<<BOLDWHITE<<"\n";
 			expr="";
 

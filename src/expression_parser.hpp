@@ -82,39 +82,36 @@ struct toks_and_ops;
 struct expr_stack;
 
 
-class Parser{
 
-public :
 
-	static void remov(int pos, vector<double>& nums);
+void remov(int pos, vector<double>& nums);
 
-	static void remov(int pos, vector<int>& nums);
+void remov(int pos, vector<int>& nums);
 
-	static void remov(int pos, vector<char>& ops);
+void remov(int pos, vector<char>& ops);
 
-	static	double get_num(string num);
+double get_num(string num);
 
-	static	double evaluate(string expr);
+double evaluate(string expr);
 
-	static toks_and_ops tokenize(string expr);
+toks_and_ops tokenize(string expr);
 
-	static void print_vector(vector<double> vec);
+void print_vector(vector<double> vec);
 
-	static void print_vector(vector<char> vec);
+void print_vector(vector<char> vec);
 
-	static double eval_with_braces(string expr);
+double eval_with_braces(string expr);
 
-	static string replace(string source, string del , string add);
+string replace_expr(string source, string del , string add);
 
-	static string pre_process_trig_and_constants(string source);
+string pre_process_trig_and_constants(string source);
 
-	//static string trig_deriv(string trig);
-};
+//static string trig_deriv(string trig);
 
 
 struct toks_and_ops{
 
-	/*
+	/**
 	 * compound data type for conveninece
 	 */
 	vector<double> toks;
@@ -125,7 +122,9 @@ struct toks_and_ops{
 
 struct expr_stack{
 
-	/*member fields*/
+	/**
+	 * member fields
+	 * */
 	bool expr_done =false;
 	int ind=0;
 	int prev= -1;
@@ -134,9 +133,11 @@ struct expr_stack{
 	string expr="";
 	string ref;
 
-	/*method for the stack*/
+	/**
+	 * method for the stack
+	 * */
 	void push(char i){
-		/*
+		/**
 		 * The algorithm for push() dynamically checks for complete braces ( complete braces are a pair of adjacent ( and ) )
 		 * If more left braces are found the current starting index of a brace to be completed is updated as the index of most recent left brace
 		 * While there is a left brace and a right brace is found , it denotes a valid brace expression and the contents inside it is evaluated as
@@ -161,11 +162,11 @@ struct expr_stack{
 
 
 			ref=expr.substr(prev +1 , ind -prev  );
-			ref=to_string(Parser::evaluate(ref));
+			ref=to_string(evaluate(ref));
 
 			expr = expr.substr(0, prev)+ ref;
 			ind =prev+ ref.size();
-			Parser::remov(prev_l_bracs.size() -1 ,prev_l_bracs);
+			remov(prev_l_bracs.size() -1 ,prev_l_bracs);
 
 			if(!prev_l_bracs.empty()){
 
