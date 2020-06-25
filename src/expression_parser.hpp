@@ -106,6 +106,8 @@ string replace_expr(string source, string del , string add);
 
 string pre_process_trig_and_constants(string source);
 
+double round_val(double num);
+
 //static string trig_deriv(string trig);
 
 

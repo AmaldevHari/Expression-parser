@@ -97,7 +97,6 @@ double parser::evaluate(string expr){
 	}
 
 	toks_and_ops r =tokenize(expr);
-	double temp_val;
 	int ops_index=0;
 	/**
 	 * The operations use BEDMAS
@@ -109,10 +108,10 @@ double parser::evaluate(string expr){
 
 		if(*i == POWER){
 
-			temp_val= pow(r.toks[ops_index] , r.toks[ops_index+1]);
+			r.toks[ops_index] = pow(r.toks[ops_index] , r.toks[ops_index+1]);
 			remov(ops_index+1, r.toks);
 			remov(ops_index, r.ops);
-			r.toks[ops_index] = temp_val;
+
 
 		}else{
 
@@ -130,10 +129,10 @@ double parser::evaluate(string expr){
 
 		if(*i == MULTI){
 
-			temp_val=r.toks[ops_index+1] * r.toks[ops_index];
+			r.toks[ops_index] =r.toks[ops_index+1] * r.toks[ops_index];
 			remov(ops_index+1, r.toks);
 			remov(ops_index, r.ops);
-			r.toks[ops_index] = temp_val;
+
 
 		}else{
 
@@ -153,10 +152,10 @@ double parser::evaluate(string expr){
 
 		if(*i == DIV){
 
-			temp_val= r.toks[ops_index] / r.toks[ops_index+1];
+			r.toks[ops_index] = r.toks[ops_index] / r.toks[ops_index+1];
 			remov(ops_index+1, r.toks);
 			remov(ops_index, r.ops);
-			r.toks[ops_index] = temp_val;
+
 
 		}else{
 
@@ -175,10 +174,10 @@ double parser::evaluate(string expr){
 
 		if(*i == PLUS){
 
-			temp_val= r.toks[ops_index+1] + r.toks[ops_index];
+			r.toks[ops_index] = r.toks[ops_index+1] + r.toks[ops_index];
 			remov(ops_index+1, r.toks);
 			remov(ops_index, r.ops);
-			r.toks[ops_index] = temp_val;
+
 
 		}else{
 
@@ -276,10 +275,10 @@ double parser::eval_with_braces(string expr){
 
 	expr.erase( remove(expr.begin(),expr.end(), ' '), expr.end());
 	expr = pre_process_trig_and_constants(expr);
-
+	expr =expr+"+0";
 	for(auto i =expr.begin();i<expr.end();){
 
-		if(*i!=SIN && *i !=COS && *i != TAN){
+		if((*i!=SIN && *i !=COS) && *i != TAN){
 
 			eval.push(*i);
 			i++;
@@ -295,24 +294,46 @@ double parser::eval_with_braces(string expr){
 				trig_ind++;
 			}
 
+
 			string temp;
 			if(*i== SIN){
 
-				temp= to_string(sin(evaluate(trig_eval.expr)));
+				temp= to_string(round_val(sin(evaluate(trig_eval.expr))));
 			}else if(*i== COS){
 
-				temp= to_string(cos(evaluate(trig_eval.expr)));
+				temp= to_string(round_val(cos(evaluate(trig_eval.expr))));
 			}else{
-				temp= to_string(tan(evaluate(trig_eval.expr)));
+				temp= to_string(round_val(tan(evaluate(trig_eval.expr))));
 			}
-			expr =expr.substr(0,ind) + temp +expr.substr(ind+ trig_eval.push_count +1, expr.size()-ind -trig_eval.ind -2);
 
+			cout<<"temp val is:"<<temp<<"\n";
+			cout<<"temp val is:"<<expr.substr(0,ind)<<"\n";
+			cout<<"temp val is:"<<expr.substr(ind+ trig_eval.push_count +1)<<"\n";
+			string sec_temp="";
+
+			sec_temp =expr.substr(0,ind) ;
+			sec_temp+= temp;
+			sec_temp+=expr.substr(ind+ trig_eval.push_count +1);
+			expr=sec_temp;
+			cout<<"exprs is: "<<eval.expr<<"\n";
 		}
+
+		cout<<eval.expr<<"\n";
 	}
 	return evaluate(eval.expr);
 };
 
 
+double parser::round_val(double num){
+
+	if(abs(num)<1e-4){
+
+		return 0;
+	}else{
+		return num;
+	}
+
+};
 
 string parser::replace_expr(string source, string del, string add){
 
