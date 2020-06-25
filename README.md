@@ -6,7 +6,7 @@ on BEDMAS.
 
 The result is printed out.
 *****************************************************************************
-For building/cleaning/executing in windows:
+For building/cleaning/executing binary in windows:
 
 1) execute 'win.bat' with one of the following arguments:
 			(i)   run
@@ -17,7 +17,7 @@ Note: start by compiling then running. Clean to rebuild if required
 example: win compile
 	 win run
 
-For building/cleaning/executing in Linux:
+For building/cleaning/executing binaryin Linux:
 1) execute 'linux' file with oneof the following arguments:
 			(i)   run
 			(ii)  clean
@@ -48,5 +48,3 @@ and so on and so forth
 *****************************************************************************
 To generate documentation use the config_file that comes with this project
 example: execute 'doxygen config_file'
-
-Thanks for reading!
