@@ -63,7 +63,7 @@ int main(int argc , char** argv){
 
 		}catch(exception& e){
 
-			cout<<e.what();
+			cout<<e.what()<<"\n";
 			cout<<BOLDRED<<"error: error while parsing!"<<BOLDWHITE<<"\n";
 		}
 		no_eval:{ expr="";}

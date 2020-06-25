@@ -292,6 +292,7 @@ double parser::eval_with_braces(string expr){
 
 			trig_ind =ind+1;
 
+			//isolates the immediate valid expression after trig indicator i.e sin, cos or tan
 			while(!trig_eval.expr_done){
 
 				trig_eval.push(expr.at(trig_ind));
