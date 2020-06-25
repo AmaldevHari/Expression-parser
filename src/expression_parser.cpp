@@ -155,8 +155,6 @@ double parser::evaluate(string expr){
 			r.toks[ops_index] = r.toks[ops_index] / r.toks[ops_index+1];
 			remov(ops_index+1, r.toks);
 			remov(ops_index, r.ops);
-
-
 		}else{
 
 			i++;
@@ -177,8 +175,6 @@ double parser::evaluate(string expr){
 			r.toks[ops_index] = r.toks[ops_index+1] + r.toks[ops_index];
 			remov(ops_index+1, r.toks);
 			remov(ops_index, r.ops);
-
-
 		}else{
 
 			i++;

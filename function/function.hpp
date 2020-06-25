@@ -10,32 +10,32 @@
 
 #include "../src/expression_parser.hpp"
 
-
-namespace function{
-
 using namespace parser;
+
+namespace function_space{
 
 struct token;
 
-class function{
+
+class func{
 
 private:
-	vector<token> func;
+
+	vector<token> func_;
 	void get_toks(vector<token>& func, string function);
-
 public:
-	function(string function);
 
-
+	token tokenize(string expr);
+	func(string function);
 };
 
 struct token{
 
-	char var;
-	double exp;
+	const char var ='x';
+	double power=0;
 	double co_eff=1;
-	char prev_symbol;
+	char prev_symbol= '\0';
 };
-
 }
+
 #endif /* FUNCTION_FUNCTION_HPP_ */

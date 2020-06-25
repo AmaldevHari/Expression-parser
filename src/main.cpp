@@ -8,7 +8,7 @@
 
 #include "../function/function.hpp"
 
-using namespace function;
+using namespace parser;
 
 
 int main(int argc , char** argv){
@@ -27,7 +27,6 @@ int main(int argc , char** argv){
 	cout.precision(9);
 	double ans=0;
 	double prev=0;
-
 	while(true){
 
 		cout<< "$: ";

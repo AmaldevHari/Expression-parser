@@ -10,6 +10,9 @@
 #include <math.h>
 #include <regex>
 
+
+using namespace std;
+
 namespace parser{
 
 #define COLOROUTPUT 1
@@ -76,11 +79,8 @@ namespace parser{
 #define TAN 't'
 
 
-using namespace std;
-
 struct toks_and_ops;
 struct expr_stack;
-
 
 
 
