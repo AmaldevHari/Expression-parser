@@ -143,7 +143,7 @@ ABBREVIATE_BRIEF       = "The $name class" \
 # description.
 # The default value is: NO.
 
-ALWAYS_DETAILED_SEC    = NO
+ALWAYS_DETAILED_SEC    = YES
 
 # If the INLINE_INHERITED_MEMB tag is set to YES, doxygen will show all
 # inherited members of a class in the documentation of that class as if those
@@ -275,7 +275,7 @@ TCL_SUBST              =
 # members will be omitted, etc.
 # The default value is: NO.
 
-OPTIMIZE_OUTPUT_FOR_C  = NO
+OPTIMIZE_OUTPUT_FOR_C  = YES
 
 # Set the OPTIMIZE_OUTPUT_JAVA tag to YES if your project consists of Java or
 # Python sources only. Doxygen will then generate output that is more tailored
@@ -467,7 +467,7 @@ LOOKUP_CACHE_SIZE      = 0
 # normally produced when WARNINGS is set to YES.
 # The default value is: NO.
 
-EXTRACT_ALL            = NO
+EXTRACT_ALL            = YES
 
 # If the EXTRACT_PRIVATE tag is set to YES, all private members of a class will
 # be included in the documentation.
@@ -553,7 +553,7 @@ HIDE_IN_BODY_DOCS      = NO
 # will be excluded. Set it to YES to include the internal documentation.
 # The default value is: NO.
 
-INTERNAL_DOCS          = NO
+INTERNAL_DOCS          = YES
 
 # If the CASE_SENSE_NAMES tag is set to NO then doxygen will only generate file
 # names in lower-case letters. If set to YES, upper-case letters are also
@@ -908,7 +908,7 @@ FILE_PATTERNS          = *.c \
 # be searched for input files as well.
 # The default value is: NO.
 
-RECURSIVE              = NO
+RECURSIVE              = YES
 
 # The EXCLUDE tag can be used to specify files and/or directories that should be
 # excluded from the INPUT source files. This way you can easily exclude a
@@ -964,7 +964,7 @@ EXAMPLE_PATTERNS       = *
 # irrespective of the value of the RECURSIVE tag.
 # The default value is: NO.
 
-EXAMPLE_RECURSIVE      = NO
+EXAMPLE_RECURSIVE      = YES
 
 # The IMAGE_PATH tag can be used to specify one or more files or directories
 # that contain images that are to be included in the documentation (see the
@@ -1052,7 +1052,7 @@ INLINE_SOURCES         = NO
 # Fortran comments will always remain visible.
 # The default value is: YES.
 
-STRIP_CODE_COMMENTS    = YES
+STRIP_CODE_COMMENTS    = NO
 
 # If the REFERENCED_BY_RELATION tag is set to YES then for each documented
 # entity all documented functions referencing it will be listed.
@@ -1737,7 +1737,7 @@ EXTRA_SEARCH_MAPPINGS  =
 # If the GENERATE_LATEX tag is set to YES, doxygen will generate LaTeX output.
 # The default value is: YES.
 
-GENERATE_LATEX         = YES
+GENERATE_LATEX         = NO
 
 # The LATEX_OUTPUT tag is used to specify where the LaTeX docs will be put. If a
 # relative path is entered the value of OUTPUT_DIRECTORY will be put in front of
@@ -2218,7 +2218,7 @@ EXPAND_AS_DEFINED      =
 # The default value is: YES.
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
-SKIP_FUNCTION_MACROS   = YES
+SKIP_FUNCTION_MACROS   = NO
 
 #---------------------------------------------------------------------------
 # Configuration options related to external references
