@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/amaldev/Expression-parser/function/function.hpp
+../src/expression_parser.hpp
+/home/amaldev/Expression-parser/src/expression_parser.hpp
+
+/home/amaldev/Expression-parser/src/expression_parser.cpp
+expression_parser.hpp
+/home/amaldev/Expression-parser/src/expression_parser.hpp
+
+/home/amaldev/Expression-parser/src/expression_parser.hpp
+iostream
+-
+string
+-
+vector
+-
+algorithm
+-
+math.h
+-
+regex
+-
+
+/home/amaldev/Expression-parser/src/main.cpp
+../function/function.hpp
+/home/amaldev/Expression-parser/function/function.hpp
+

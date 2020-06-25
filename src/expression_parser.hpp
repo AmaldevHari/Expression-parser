@@ -136,6 +136,22 @@ struct expr_stack{
 	string ref;
 
 	/**
+	 * for re-initializing this stack
+	 */
+	void recycle(){
+		/**
+		 * sets all members fields to initial value
+		 */
+		expr_done =false;
+		ind=0;
+		prev= -1;
+		push_count=0;
+		prev_l_bracs.clear();
+		expr="";
+		ref="";
+
+	}
+	/**
 	 * method for the stack
 	 * */
 	void push(char i){

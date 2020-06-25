@@ -271,7 +271,11 @@ double parser::eval_with_braces(string expr){
 	 * see expr_stack structure for more information on evaluation of expressions with braces
 	 */
 	expr_stack eval;
+	expr_stack trig_eval;
 	int ind=0;
+	int trig_ind;
+	string temp="";
+	string sec_temp="";
 
 	expr.erase( remove(expr.begin(),expr.end(), ' '), expr.end());
 	expr = pre_process_trig_and_constants(expr);
@@ -285,8 +289,8 @@ double parser::eval_with_braces(string expr){
 			ind++;
 		}else{
 
-			expr_stack trig_eval;
-			int trig_ind =ind+1;
+
+			trig_ind =ind+1;
 
 			while(!trig_eval.expr_done){
 
@@ -295,7 +299,7 @@ double parser::eval_with_braces(string expr){
 			}
 
 
-			string temp;
+
 			if(*i== SIN){
 
 				temp= to_string(round_val(sin(evaluate(trig_eval.expr))));
@@ -306,19 +310,17 @@ double parser::eval_with_braces(string expr){
 				temp= to_string(round_val(tan(evaluate(trig_eval.expr))));
 			}
 
-			cout<<"temp val is:"<<temp<<"\n";
-			cout<<"temp val is:"<<expr.substr(0,ind)<<"\n";
-			cout<<"temp val is:"<<expr.substr(ind+ trig_eval.push_count +1)<<"\n";
-			string sec_temp="";
-
 			sec_temp =expr.substr(0,ind) ;
 			sec_temp+= temp;
 			sec_temp+=expr.substr(ind+ trig_eval.push_count +1);
 			expr=sec_temp;
-			cout<<"exprs is: "<<eval.expr<<"\n";
-		}
 
-		cout<<eval.expr<<"\n";
+			sec_temp="";
+			temp="";
+			trig_eval.recycle();
+			trig_ind=0;
+
+		}
 	}
 	return evaluate(eval.expr);
 };
@@ -356,17 +358,4 @@ string parser::pre_process_trig_and_constants(string source){
 }
 
 
-/*string trig_deriv(string trig){
 
-	if(trig.substr(0,3).compare("sin" )==0){
-
-		return "cos(x)";
-
-	}
-	if(trig.substr(0,3).compare("cos")==0){
-
-		return "-sin(x)";
-	}
-	return "";
-
-}*/
