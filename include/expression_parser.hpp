@@ -11,9 +11,17 @@
 #include <regex>
 
 
-using namespace std;
 
 namespace parser{
+
+using std::string;
+using std::vector;
+using std::regex;
+using std::to_string;
+using std::cout;
+using std::cin;
+using std::stod;
+using std::exception;
 
 #define COLOROUTPUT 1
 
