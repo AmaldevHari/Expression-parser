@@ -1,6 +1,0 @@
-
-cd ../build
-
-run
-
-cd ..

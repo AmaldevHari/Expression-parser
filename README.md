@@ -3,30 +3,14 @@ Mathematical expression parser and interpreter written in C++
 
 ![alt text](https://i.imgur.com/frWuQuM.png)
 
-The software can read expressions which includes nested expressions with brackets and interprets its based 
+TO install the library and headers simply run install script provided.
+To test the program execute the binary file in bin folder.
+
+The program can read expressions which includes nested expressions with brackets and interprets its based 
 on BEDMAS.
 
 The result is printed out.
 *****************************************************************************
-For building/cleaning/executing binary in windows:
-
-1) execute 'win.bat' with one of the following arguments:
-			(i)   run
-			(ii)  clean
-			(iii) compile
-
-Note: start by compiling then running. Clean to rebuild if required
-example: win compile
-	 win run
-
-For building/cleaning/executing binaryin Linux:
-1) execute 'linux' file with oneof the following arguments:
-			(i)   run
-			(ii)  clean
-			(iii) compile
-	 
-exmaple: ./linux compile
-	 ./linux run
 
 *****************************************************************************
 
