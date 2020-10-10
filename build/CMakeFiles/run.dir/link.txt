@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/run.dir/src/expression_parser.cpp.o CMakeFiles/run.dir/src/main.cpp.o  -o run 
+/usr/bin/c++     CMakeFiles/run.dir/src/expression_parser.cpp.o CMakeFiles/run.dir/src/integral_calculator.cpp.o CMakeFiles/run.dir/src/main.cpp.o  -o run 

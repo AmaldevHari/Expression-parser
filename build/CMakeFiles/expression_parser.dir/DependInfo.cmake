@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/amaldev/cpp_projects/Expression-parser/src/expression_parser.cpp" "/home/amaldev/cpp_projects/Expression-parser/build/CMakeFiles/expression_parser.dir/src/expression_parser.cpp.o"
+  "/home/amaldev/Symbolic-Math/src/expression_parser.cpp" "/home/amaldev/Symbolic-Math/build/CMakeFiles/expression_parser.dir/src/expression_parser.cpp.o"
+  "/home/amaldev/Symbolic-Math/src/integral_calculator.cpp" "/home/amaldev/Symbolic-Math/build/CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

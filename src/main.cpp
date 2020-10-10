@@ -6,7 +6,7 @@
  */
 
 
-#include "../include/expression_parser.hpp"
+#include "../include/integral_calculator.hpp"
 
 using namespace parser;
 
@@ -18,6 +18,7 @@ int main(int argc , char** argv){
 	cout<<"Trigonometric functions are also supported, sin(.), cos(.), and tan(.) \n";
 	cout<< "Built in constants are"<<BOLDRED<<" e "<<BOLDCYAN<<"and"<<BOLDRED<<" pi"<<BOLDWHITE <<"\n";
 	cout<<"Operations are based on BEDMAS \n"<<BOLDWHITE;
+	cout<<BOLDCYAN<<"To evaluate polynomial integrals type integral [ space] [polynomial function], for example integral x^2 +x^3 +5  \n"<<BOLDWHITE;
 	cout<<GREEN<<"Note: sin(2pi) is not same as sin(2*pi) , implicitly leaving will result in concatenation \n";
 	cout<<"Hint: result of the previous operation can be accessed using the expression prev"<<"\n";
 	cout<< "example: prev * sin(3*pi) is a valid operation accesing the previous answer to the previous expression \n"<<BOLDWHITE;
@@ -48,6 +49,14 @@ int main(int argc , char** argv){
 
 				cout.precision((int)get_num(replace_expr(expr,"precision=","")));
 				cout<<"precision is now:"<<cout.precision()<<"\n";
+				goto no_eval;
+
+			}if(expr.substr(0,8).compare("integral")==0){
+		 	 	
+				prev=ans;
+				expr=regex_replace(expr,regex("prev"),to_string(prev));
+				expr=replace_expr(expr,"integral","");
+				cout<<BOLDRED<<"Ans: "<<BOLDGREEN<<polynomial_int(expr)<<BOLDWHITE<<"\n";
 				goto no_eval;
 			}
 

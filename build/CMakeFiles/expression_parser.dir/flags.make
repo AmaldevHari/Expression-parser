@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC
 
 CXX_DEFINES = -Dexpression_parser_EXPORTS
 
-CXX_INCLUDES = -I/home/amaldev/cpp_projects/Expression-parser/include 
+CXX_INCLUDES = -I/home/amaldev/Symbolic-Math/include 
 

@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/amaldev/cpp_projects/Expression-parser/include 
+CXX_INCLUDES = -I/home/amaldev/Symbolic-Math/include 
 

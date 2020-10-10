@@ -5,9 +5,9 @@ project(run)
 
 include_directories(include)
 
-add_executable(run src/expression_parser.cpp src/main.cpp)
+add_executable(run src/expression_parser.cpp src/integral_calculator.cpp src/main.cpp)
 
-add_library(expression_parser SHARED src/expression_parser.cpp)
+add_library(expression_parser SHARED src/expression_parser.cpp src/integral_calculator.cpp)
 
 install(TARGETS expression_parser run
 	LIBRARY  DESTINATION lib

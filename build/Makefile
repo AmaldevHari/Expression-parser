@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/amaldev/cpp_projects/Expression-parser
+CMAKE_SOURCE_DIR = /home/amaldev/Symbolic-Math
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/amaldev/cpp_projects/Expression-parser/build
+CMAKE_BINARY_DIR = /home/amaldev/Symbolic-Math/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,9 +126,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/amaldev/cpp_projects/Expression-parser/build/CMakeFiles /home/amaldev/cpp_projects/Expression-parser/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/amaldev/Symbolic-Math/build/CMakeFiles /home/amaldev/Symbolic-Math/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/amaldev/cpp_projects/Expression-parser/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/amaldev/Symbolic-Math/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -212,6 +212,36 @@ src/expression_parser.cpp.s:
 	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/src/expression_parser.cpp.s
 .PHONY : src/expression_parser.cpp.s
 
+src/integral_calculator.o: src/integral_calculator.cpp.o
+
+.PHONY : src/integral_calculator.o
+
+# target to build an object file
+src/integral_calculator.cpp.o:
+	$(MAKE) -f CMakeFiles/expression_parser.dir/build.make CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.o
+	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/src/integral_calculator.cpp.o
+.PHONY : src/integral_calculator.cpp.o
+
+src/integral_calculator.i: src/integral_calculator.cpp.i
+
+.PHONY : src/integral_calculator.i
+
+# target to preprocess a source file
+src/integral_calculator.cpp.i:
+	$(MAKE) -f CMakeFiles/expression_parser.dir/build.make CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.i
+	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/src/integral_calculator.cpp.i
+.PHONY : src/integral_calculator.cpp.i
+
+src/integral_calculator.s: src/integral_calculator.cpp.s
+
+.PHONY : src/integral_calculator.s
+
+# target to generate assembly for a file
+src/integral_calculator.cpp.s:
+	$(MAKE) -f CMakeFiles/expression_parser.dir/build.make CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.s
+	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/src/integral_calculator.cpp.s
+.PHONY : src/integral_calculator.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -256,6 +286,9 @@ help:
 	@echo "... src/expression_parser.o"
 	@echo "... src/expression_parser.i"
 	@echo "... src/expression_parser.s"
+	@echo "... src/integral_calculator.o"
+	@echo "... src/integral_calculator.i"
+	@echo "... src/integral_calculator.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

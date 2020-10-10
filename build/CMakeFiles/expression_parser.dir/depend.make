@@ -4,3 +4,7 @@
 CMakeFiles/expression_parser.dir/src/expression_parser.cpp.o: ../include/expression_parser.hpp
 CMakeFiles/expression_parser.dir/src/expression_parser.cpp.o: ../src/expression_parser.cpp
 
+CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.o: ../include/expression_parser.hpp
+CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.o: ../include/integral_calculator.hpp
+CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.o: ../src/integral_calculator.cpp
+

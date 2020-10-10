@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/amaldev/cpp_projects/Expression-parser/include/expression_parser.hpp
+../include/expression_parser.hpp
 iostream
 -
 string
@@ -20,11 +20,37 @@ math.h
 regex
 -
 
-/home/amaldev/cpp_projects/Expression-parser/src/expression_parser.cpp
+../include/integral_calculator.hpp
+expression_parser.hpp
 ../include/expression_parser.hpp
-/home/amaldev/cpp_projects/Expression-parser/include/expression_parser.hpp
 
-/home/amaldev/cpp_projects/Expression-parser/src/main.cpp
+/home/amaldev/Symbolic-Math/include/expression_parser.hpp
+iostream
+-
+string
+-
+vector
+-
+algorithm
+-
+math.h
+-
+regex
+-
+
+/home/amaldev/Symbolic-Math/include/integral_calculator.hpp
+expression_parser.hpp
+/home/amaldev/Symbolic-Math/include/expression_parser.hpp
+
+/home/amaldev/Symbolic-Math/src/expression_parser.cpp
 ../include/expression_parser.hpp
-/home/amaldev/cpp_projects/Expression-parser/include/expression_parser.hpp
+/home/amaldev/Symbolic-Math/include/expression_parser.hpp
+
+/home/amaldev/Symbolic-Math/src/integral_calculator.cpp
+integral_calculator.hpp
+/home/amaldev/Symbolic-Math/src/integral_calculator.hpp
+
+/home/amaldev/Symbolic-Math/src/main.cpp
+../include/integral_calculator.hpp
+/home/amaldev/Symbolic-Math/include/integral_calculator.hpp
 

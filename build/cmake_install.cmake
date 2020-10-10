@@ -1,4 +1,4 @@
-# Install script for directory: /home/amaldev/cpp_projects/Expression-parser
+# Install script for directory: /home/amaldev/Symbolic-Math
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libexpression_parser.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/amaldev/cpp_projects/Expression-parser/build/libexpression_parser.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/amaldev/Symbolic-Math/build/libexpression_parser.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libexpression_parser.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libexpression_parser.so")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -57,31 +57,31 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}/home/amaldev/cpp_projects/Expression-parser/bin/run" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/amaldev/cpp_projects/Expression-parser/bin/run")
+  if(EXISTS "$ENV{DESTDIR}/home/amaldev/Symbolic-Math/bin/run" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/amaldev/Symbolic-Math/bin/run")
     file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/home/amaldev/cpp_projects/Expression-parser/bin/run"
+         FILE "$ENV{DESTDIR}/home/amaldev/Symbolic-Math/bin/run"
          RPATH "")
   endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/amaldev/cpp_projects/Expression-parser/bin/run")
+   "/home/amaldev/Symbolic-Math/bin/run")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/amaldev/cpp_projects/Expression-parser/bin" TYPE EXECUTABLE FILES "/home/amaldev/cpp_projects/Expression-parser/build/run")
-  if(EXISTS "$ENV{DESTDIR}/home/amaldev/cpp_projects/Expression-parser/bin/run" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/amaldev/cpp_projects/Expression-parser/bin/run")
+file(INSTALL DESTINATION "/home/amaldev/Symbolic-Math/bin" TYPE EXECUTABLE FILES "/home/amaldev/Symbolic-Math/build/run")
+  if(EXISTS "$ENV{DESTDIR}/home/amaldev/Symbolic-Math/bin/run" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/amaldev/Symbolic-Math/bin/run")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/amaldev/cpp_projects/Expression-parser/bin/run")
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/amaldev/Symbolic-Math/bin/run")
     endif()
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/home/amaldev/cpp_projects/Expression-parser/include/expression_parser.hpp")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/home/amaldev/Symbolic-Math/include/expression_parser.hpp")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -92,5 +92,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/amaldev/cpp_projects/Expression-parser/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/amaldev/Symbolic-Math/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

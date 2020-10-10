@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/run.dir/src/expression_parser.cpp.o"
+  "CMakeFiles/run.dir/src/integral_calculator.cpp.o"
   "CMakeFiles/run.dir/src/main.cpp.o"
   "run"
   "run.pdb"

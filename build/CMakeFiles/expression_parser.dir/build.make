@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/amaldev/cpp_projects/Expression-parser
+CMAKE_SOURCE_DIR = /home/amaldev/Symbolic-Math
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/amaldev/cpp_projects/Expression-parser/build
+CMAKE_BINARY_DIR = /home/amaldev/Symbolic-Math/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/expression_parser.dir/depend.make
@@ -59,28 +59,43 @@ include CMakeFiles/expression_parser.dir/flags.make
 
 CMakeFiles/expression_parser.dir/src/expression_parser.cpp.o: CMakeFiles/expression_parser.dir/flags.make
 CMakeFiles/expression_parser.dir/src/expression_parser.cpp.o: ../src/expression_parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amaldev/cpp_projects/Expression-parser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/expression_parser.dir/src/expression_parser.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/expression_parser.dir/src/expression_parser.cpp.o -c /home/amaldev/cpp_projects/Expression-parser/src/expression_parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amaldev/Symbolic-Math/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/expression_parser.dir/src/expression_parser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/expression_parser.dir/src/expression_parser.cpp.o -c /home/amaldev/Symbolic-Math/src/expression_parser.cpp
 
 CMakeFiles/expression_parser.dir/src/expression_parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/expression_parser.dir/src/expression_parser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/amaldev/cpp_projects/Expression-parser/src/expression_parser.cpp > CMakeFiles/expression_parser.dir/src/expression_parser.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/amaldev/Symbolic-Math/src/expression_parser.cpp > CMakeFiles/expression_parser.dir/src/expression_parser.cpp.i
 
 CMakeFiles/expression_parser.dir/src/expression_parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/expression_parser.dir/src/expression_parser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/amaldev/cpp_projects/Expression-parser/src/expression_parser.cpp -o CMakeFiles/expression_parser.dir/src/expression_parser.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/amaldev/Symbolic-Math/src/expression_parser.cpp -o CMakeFiles/expression_parser.dir/src/expression_parser.cpp.s
+
+CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.o: CMakeFiles/expression_parser.dir/flags.make
+CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.o: ../src/integral_calculator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amaldev/Symbolic-Math/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.o -c /home/amaldev/Symbolic-Math/src/integral_calculator.cpp
+
+CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/amaldev/Symbolic-Math/src/integral_calculator.cpp > CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.i
+
+CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/amaldev/Symbolic-Math/src/integral_calculator.cpp -o CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.s
 
 # Object files for target expression_parser
 expression_parser_OBJECTS = \
-"CMakeFiles/expression_parser.dir/src/expression_parser.cpp.o"
+"CMakeFiles/expression_parser.dir/src/expression_parser.cpp.o" \
+"CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.o"
 
 # External object files for target expression_parser
 expression_parser_EXTERNAL_OBJECTS =
 
 libexpression_parser.so: CMakeFiles/expression_parser.dir/src/expression_parser.cpp.o
+libexpression_parser.so: CMakeFiles/expression_parser.dir/src/integral_calculator.cpp.o
 libexpression_parser.so: CMakeFiles/expression_parser.dir/build.make
 libexpression_parser.so: CMakeFiles/expression_parser.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/amaldev/cpp_projects/Expression-parser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library libexpression_parser.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/amaldev/Symbolic-Math/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library libexpression_parser.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/expression_parser.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -93,6 +108,6 @@ CMakeFiles/expression_parser.dir/clean:
 .PHONY : CMakeFiles/expression_parser.dir/clean
 
 CMakeFiles/expression_parser.dir/depend:
-	cd /home/amaldev/cpp_projects/Expression-parser/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/amaldev/cpp_projects/Expression-parser /home/amaldev/cpp_projects/Expression-parser /home/amaldev/cpp_projects/Expression-parser/build /home/amaldev/cpp_projects/Expression-parser/build /home/amaldev/cpp_projects/Expression-parser/build/CMakeFiles/expression_parser.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/amaldev/Symbolic-Math/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/amaldev/Symbolic-Math /home/amaldev/Symbolic-Math /home/amaldev/Symbolic-Math/build /home/amaldev/Symbolic-Math/build /home/amaldev/Symbolic-Math/build/CMakeFiles/expression_parser.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/expression_parser.dir/depend
 
